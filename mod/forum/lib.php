@@ -759,6 +759,11 @@ function forum_cron() {
                     // Clone userfrom as it is referenced by $users.
                     $cloneduserfrom = clone($userfrom);
                     $cloneduserfrom->email = $CFG->noreplyaddress;
+                    // If forum_replytoname is not set then send mail using the course shortname
+                    if (empty($CFG->forum_replytoname)) {
+                        $cloneduserfrom->firstname = $shortname;
+                        $cloneduserfrom->lastname = '';
+                    }
                     $eventdata->userfrom = $cloneduserfrom;
                 }
 

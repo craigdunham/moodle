@@ -32,6 +32,10 @@ if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_configcheckbox('forum_replytouser', get_string('replytouser', 'forum'),
                        get_string('configreplytouser', 'forum'), 1));
 
+    // Use course short name instead of username when not using the replytouser
+    $settings->add(new admin_setting_configcheckbox('forum_replytoname', get_string('replytoname', 'forum'),
+                       get_string('configreplytoname', 'forum'), 1));
+
     // Less non-HTML characters than this is short
     $settings->add(new admin_setting_configtext('forum_shortpost', get_string('shortpost', 'forum'),
                        get_string('configshortpost', 'forum'), 300, PARAM_INT));
